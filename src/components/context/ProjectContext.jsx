@@ -1,11 +1,10 @@
 import React, { createContext, useState } from 'react'
-import { Data as ProjCardData } from "../../data/Data";
+import { ProjectData } from "../../data/ProjectData";
 
 export const ProjectContext = createContext();
 
 const ProjectProvider = ({children}) => {
-  const [projData, setProjData] = useState(ProjCardData);
-
+  const [projData, setProjData] = useState(ProjectData);
   return (
     <ProjectContext.Provider value={{projData}}>
       {children}

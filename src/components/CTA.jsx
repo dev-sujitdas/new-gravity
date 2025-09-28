@@ -1,16 +1,32 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Button from './buttons/Button';
 
 const CTA = () => {
+   let title = "ENTER THE NEXT DIMENSION OF POSSIBILITY";
     return (
-        <section className='w-full p-20'>
+        <section className='w-full pt-10 pb-20 md:pt-30 md:pb-30 relative'>
             <div className='flex justify-center items-center flex-col'>
-                <Link to="/contact">
-                <button id='button' className='green-pink-gradient p-[1px] rounded-full cursor-pointer'>
-                    <h2 className='bg-[#040414] rounded-full text-zinc-200 p-8 text-7xl orbitron-semibold'>Let's get started</h2>
-                </button>
-                </Link>
+                <div className='2xl:w-[65%] z-50'>
+                    <h2 className='gradient-text text-3xl md:text-4xl lg:text-5xl xl:text-6xl orbitron-bold gap-2 text-center tracking-tight'>
+                        {title.split('').map((word, i) => (
+                            <span key={i}>{word}</span>
+                        ))}                      
+                    </h2>
+                </div>
+                <div className='mt-10 z-50'>
+                    <Button
+                        title="Let's start a project"
+                        bodyColor="bg-[#040414]"
+                        bodyText="text-white"
+                        titleSize="1rem"
+                        width="w-fit"
+                        circleColor="bg-white"
+                        circleSize="2.5rem"
+                        link="/contact"
+                    />
+                </div>
             </div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[10rem] h-[10rem] md:w-[20rem] md:h-[20rem] bg-[#fdbb58c7] rounded-full blur-[100px] opacity-30 z-0"></div>
         </section>
     )
 }

@@ -1,5 +1,8 @@
 html, body{
-  background-color: #040415;
+  background-color: #040415;    
+}
+main {   
+    min-height: 100vh;
 }
 
 .orbitron-regular {
@@ -162,6 +165,8 @@ html, body{
     background: -webkit-linear-gradient(to right #fdbb58c7 1.9%, #AC04E3 97.5%);
   }
 
+
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -184,37 +189,46 @@ html, body{
 }
 
 .group:hover #num2 {
-  -webkit-text-stroke: 1px #505053; /* hover stroke color */
+  -webkit-text-stroke: 1px #313133; /* hover stroke color */
 }
 
-
-
-
 .marquee_track {
-  overflow: hidden;  
+  overflow: hidden;
   width: 100%;
+  position: relative;
 }
 
 .marquee_list {
-  display: flex;  
   white-space: nowrap;
-  animation: marquee 15s linear infinite;
+  animation: marquee 30s linear infinite; 
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+.marquee_list img{
+display: inline-block;  
 }
 
 @keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
+
 
 #button:hover, #card:hover {
   box-shadow: 0 0 20px 5px #ab04e383;
 }
 
+
+.mousefollower {
+  box-shadow: inset 0 0 20px #9f9fa9;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #ff7e5f, #fff, #251980);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; 
+}
 
 
 

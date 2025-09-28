@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import Orb from "./shadersComponents/Orb";
+import React, { Suspense, useRef } from "react";
+const Orb = React.lazy(()=>import("./shadersComponents/Orb"));
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -27,8 +27,9 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="w-full h-screen bg-[#040414] flex justify-center items-center relative p-20">
+    <section className="w-full h-[100svh] md:h-screen bg-[#040414] flex justify-center items-center relative p-10 md:p-20">
       <div className="h-full w-full">
+        <Suspense fallback={"Loading..."}>
         <Orb
           hoverIntensity={0.5}
           rotateOnHover={true}
@@ -36,6 +37,7 @@ const Hero = () => {
           forceHoverState={false}
           className="orb"
         />
+        </Suspense>
       </div>
 
       {/* Animated Text */}
@@ -45,7 +47,7 @@ const Hero = () => {
             <h1
               key={i}
               ref={(el) => (wordRefs.current[i] = el)}
-              className="text-6xl md:text-8xl lg:text-9xl orbitron-extrabold text-zinc-50 uppercase absolute"
+              className="hero-title text-5xl md:text-8xl lg:text-9xl xl:text-8xl 2xl:text-9xl orbitron-extrabold text-zinc-50 uppercase absolute"
             >
               {word}
             </h1>           
@@ -54,12 +56,12 @@ const Hero = () => {
       </div>
 
       {/* Bottom Content */}
-      <div className="absolute bottom-0 left-0 w-full px-5 md:px-20 flex lg:flex-row flex-col justify-between items-center">
-        <div className="left xl:w-[30%] lg:w-[50%] w-full pb-10">
-          <h2 className="text-2xl md:text-3xl xl:text-4xl orbitron-bold text-zinc-200">
+      <div className="absolute bottom-0 left-0 w-full px-5 md:px-10 xl:px-20 flex lg:flex-row flex-col justify-between items-center">
+        <div className="content left 2xl:w-[30%] xl:w-[40%] lg:w-[50%] w-full md:pb-10">
+          <h2 className="text-3xl md:text-3xl xl:text-3xl 2xl:text-4xl orbitron-bold text-zinc-200">
             Creative Agency
           </h2>
-          <p className="text-base md:text-lg mt-5 text-zinc-300 poppins-light">
+          <p className="text-base md:text-base 2xl:text-lg mt-5 sm:pb-5 md:pb-0 text-zinc-300 poppins-light">
             Gravity Global Solution creates digital experiences that transform
             brands and engage audiences. We’re your creative partner, bringing
             visions to life.
