@@ -152,6 +152,47 @@ main {
   font-style: italic;
 }
 
+.loader-container {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.loader-border {
+  position: absolute;
+  width: 10rem; 
+  height: 10rem;
+  border-radius: 50%;
+  border: 5px solid transparent;
+  background: conic-gradient(
+    #00cea8 12.9%, 
+    #bf61ff 77.5%,
+    #e9e9e9 2.5%  
+  );   
+  -webkit-mask: linear-gradient(#16091f 0 0) content-box, linear-gradient(#16091f 0 0);
+  mask: linear-gradient(#16091f 0 0) content-box, linear-gradient(#16091f 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  filter: blur(10px);
+  animation: spin 2s linear infinite;
+}
+
+
+.loader-content {  
+  position: relative;
+  z-index: 10;
+}
+
+/* Spin animation for loader*/
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 
 .green-pink-gradient {
     background: "#00cea8";

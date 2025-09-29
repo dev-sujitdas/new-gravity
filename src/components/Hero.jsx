@@ -61,7 +61,7 @@ const Hero = () => {
           <h2 className="text-3xl md:text-3xl xl:text-3xl 2xl:text-4xl orbitron-bold text-zinc-200">
             Creative Agency
           </h2>
-          <p className="text-base md:text-base 2xl:text-lg mt-5 sm:pb-5 md:pb-0 text-zinc-300 poppins-light">
+          <p className="text-base md:text-base 2xl:text-lg mt-5 pb-5 md:pb-0 text-zinc-300 poppins-light">
             Gravity Global Solution creates digital experiences that transform
             brands and engage audiences. We’re your creative partner, bringing
             visions to life.
