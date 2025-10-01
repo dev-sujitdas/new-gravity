@@ -18,11 +18,11 @@ const ProjectDetails = () => {
   const project = projData.find(p => p.title === title);
 
   return (
-    <section className='w-full h-full relative overflow-hidden'>    
-       <div className='w-full h-[35vh] md:h-[35vh] lg:h-[35vh] xl:h-[60vh] 2xl:h-[60vh] relative'>     
+    <section id='project-dets' className='w-full h-full relative overflow-hidden px-5 py-20 md:p-10 xl:p-20'>    
+       <div className='w-full mt-[5rem] md:mt-[10rem] relative'>     
         <div className="absolute top-0 right-32  w-[30rem] h-[20rem] md:w-[30rem] md:h-[10rem] bg-[#fdbb58de] rounded-full blur-[100px] opacity-30 z-0"></div>
         <div className="absolute top-0 left-0 w-[10rem] h-[10rem] md:w-[38rem] md:h-[10rem] bg-gradient-to-r from-pink-500 via-purple-600 to-blue-600 rounded-full blur-[100px] opacity-50 z-0"></div>
-        <div className='absolute top-0 left-0 w-full h-full flex flex-col justify-end items-center px-5 md:px-24 lg:px-32'>
+        <div className='w-full h-full flex flex-col justify-end items-center'>
           <h1 className='text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl orbitron-extrabold text-white text-center tracking-tight'>
             {project.subtitle.split('').map((word, i) => (
               <span key={i}>{word}</span>
@@ -32,7 +32,7 @@ const ProjectDetails = () => {
         </div>
       </div>
 
-      <div className='px-5 py-20 md:p-10 xl:p-20 w-full flex flex-col justify-center items-center'>
+      <div className='w-full flex flex-col justify-center items-center mt-20 md:mt-30'>
         <div className='w-full lg:h-[35rem] xl:h-[50rem] rounded-xl overflow-hidden'>
           <video
             autoPlay
@@ -49,7 +49,7 @@ const ProjectDetails = () => {
         <div className='w-full flex xl:flex-row flex-col xl:justify-between xl:items-center  mt-5'>
           <div>
             <h2 className='text-zinc-200 orbitron-semibold text-lg md:text-xl'>How did we help:</h2>
-            <div className="flex gap-2 mt-3">
+            <div className="tag flex gap-2 mt-3">
               {project.tag?.design && (
                 <div className="px-3 py-1 text-zinc-200 bg-slate-800 rounded-lg poppins-regular">
                   <h2>UI/UX Design</h2>

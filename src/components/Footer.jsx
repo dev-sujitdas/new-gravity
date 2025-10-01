@@ -52,24 +52,24 @@ const Footer = () => {
                         </div>
                         <div>
                             <ul className="space-y-3">
-                                <li className="poppins-relugar text-zinc-300 text-base tracking-wider hover:text-[#9897F4]">
+                                <li className="poppins-relugar text-zinc-300 text-sm md:text-base tracking-wider hover:text-[#9897F4]">
                                     {" "}
                                     <Link to="/aboutUs">About Us</Link>
                                 </li>
-                                <li className="poppins-relugar text-zinc-300 text-base tracking-wider hover:text-[#9897F4]">
+                                <li className="poppins-relugar text-zinc-300 text-sm md:text-base tracking-wider hover:text-[#9897F4]">
                                     <a href="mailto:hello@gravityglobalsolution.in">Support</a>
                                 </li>
-                                <li className="poppins-relugar text-zinc-300 text-base tracking-wider hover:text-[#9897F4]">
+                                <li className="poppins-relugar text-zinc-300 text-sm md:text-base tracking-wider hover:text-[#9897F4]">
                                     <a target="_blank" href="https://documents.gravityglobalsolution.in/">
                                         Privacy Policy
                                     </a>
                                 </li>
-                                <li className="poppins-relugar text-zinc-300 text-base tracking-wider hover:text-[#9897F4]">
+                                <li className="poppins-relugar text-zinc-300 text-sm md:text-base tracking-wider hover:text-[#9897F4]">
                                     <a target="_blank" href="https://documents.gravityglobalsolution.in/">
                                         Term and Condition
                                     </a>
                                 </li>
-                                <li className="poppins-relugar text-zinc-300 text-base tracking-wider hover:text-[#9897F4]">
+                                <li className="poppins-relugar text-zinc-300 text-sm md:text-base tracking-wider hover:text-[#9897F4]">
                                     <a target="_blank" href="https://documents.gravityglobalsolution.in/">
                                         Pricing and Refund
                                     </a>{" "}
@@ -86,11 +86,11 @@ const Footer = () => {
                         </div>
                         <div>
                             <ul className="space-y-3">
-                                <li className="poppins-relugar text-zinc-300 text-base tracking-wider hover:text-[#9997F4]">
+                                <li className="poppins-relugar text-zinc-300 text-sm md:text-base tracking-wider hover:text-[#9997F4]">
                                     {" "}
                                     <a href="">Discord</a>
                                 </li>
-                                <li className="poppins-relugar text-zinc-300 text-base tracking-wider hover:text-[#9897F4]">
+                                <li className="poppins-relugar text-zinc-300 text-sm md:text-base tracking-wider hover:text-[#9897F4]">
                                     {" "}
                                     <a href="https://www.instagram.com/gravitycomunity/">Gravity</a>
                                 </li>
@@ -106,17 +106,17 @@ const Footer = () => {
                         </div>
                         <div>
                             <ul className="space-y-3">
-                                <li className="poppins-relugar text-zinc-300 text-base tracking-widest hover:text-[#9897F4]">
+                                <li className="poppins-relugar text-zinc-300 text-sm md:text-base tracking-widest hover:text-[#9897F4]">
                                     {" "}
                                     <a href="tel:+91-9073771205">9073771205</a>
                                 </li>
-                                <li className="poppins-relugar text-zinc-300 text-base tracking-widest hover:text-[#9897F4]">
+                                <li className="poppins-relugar text-zinc-300 text-sm md:text-base tracking-widest hover:text-[#9897F4]">
                                     {" "}
                                     <a href="mailto:hello@gravityglobal.in">
                                         hello@gravityglobal.in
                                     </a>
                                 </li>
-                                <li className="poppins-relugar text-zinc-300 text-base tracking-wider ">
+                                <li className="poppins-relugar text-zinc-300 text-sm md:text-base tracking-wider ">
                                     {" "}
                                     117, Rabindrapally
                                     <br /> Kestopur, Kolkata 700101{" "}
@@ -127,7 +127,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className='w-full flex justify-center items-center absolute bottom-0 bg-black/30 backdrop-blur-2xl p-2'>
-                <h2 className='text-zinc-100 poppins-regular'>Copyright 2025 - Gravity Global Solution</h2>
+                <h2 className='text-zinc-100 poppins-regular text-center text-sm md:text-base'>Copyright 2025 - Gravity Global Solution</h2>
             </div>
         </footer>
     )

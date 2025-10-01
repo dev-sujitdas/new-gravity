@@ -35,7 +35,7 @@ useGSAP(() => {
     if (toggle) {
       // Animate when opening
       gsap.to(".topLine", {
-        rotation: 45,
+        rotation: 50,
         transformOrigin: "left center",
         duration: 0.4,
         ease: "power2.inOut"
@@ -47,7 +47,7 @@ useGSAP(() => {
       });
 
       gsap.to(".bottomLine", {
-        rotation: -45,
+        rotation: -50,
         transformOrigin: "left center",
         duration: 0.4,
         ease: "power2.inOut"
@@ -71,7 +71,7 @@ useGSAP(() => {
       <div className="h-auto w-full max-w-[150rem] mx-auto px-5 md:px-10 xl:px-20 py-3 flex justify-between items-center shadow-md transition-transform ">
         <div className='left z-[999]'>
           {isMobile ? (
-            <Link to={"/"}><img src={GGSIco} alt="logo" id='logo' className='h-12 md:h-16 w-fit' /></Link>
+            <Link to={"/"}><img src={GGSIco} alt="logo" id='mobLogo' className='h-12 md:h-16 w-fit' /></Link>
           ) : (
             <Link to={"/"}><img src={GGS} alt="logo" id='logo' className='h-16 w-fit ' /></Link>
           )}
@@ -92,11 +92,11 @@ useGSAP(() => {
 
             </div>
             {toggle && (
-              <div className='nav-container fixed top-0 left-0 h-screen w-full'>
-                <div className='h-full w-full flex flex-col gap-10 justify-center items-center bg-white/10 backdrop-blur-3xl'>
+              <div className='fixed top-0 left-0 h-screen w-full'>
+                <div className='nav-container h-full w-full flex flex-col gap-10 justify-center items-center bg-white/10 backdrop-blur-3xl'>
                   {menuItem.map((menu, i) => (
                     <Link onClick={linkToggle} key={i} to={menu.link} >
-                      <h4 className='orbitron-semibold text-4xl text-white hover:text-[#5985F4]'>{menu.title}</h4>
+                      <h4 className='orbitron-semibold text-3xl md:text-4xl text-white hover:text-[#5985F4]'>{menu.title}</h4>
                     </Link>
                   ))}
                   <div className='mt-10'>

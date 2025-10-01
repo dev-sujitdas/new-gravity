@@ -27,7 +27,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="w-full h-[100svh] md:h-screen bg-[#040414] flex justify-center items-center relative p-10 md:p-20">
+    <section id="hero" className="w-full h-[100svh] md:h-screen bg-[#040414] flex justify-center items-center relative p-10 md:p-20">
       <div className="h-full w-full">
         <Suspense fallback={"Loading..."}>
         <Orb

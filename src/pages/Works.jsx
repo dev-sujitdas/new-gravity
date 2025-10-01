@@ -14,14 +14,14 @@ const Works = () => {
   const title = "Where Creativity Powers Innovation.";
 
   return (
-    <section className="w-full bg-[#040414] relative overflow-hidden">
+    <section className="w-full bg-[#040414] relative overflow-hidden px-5 py-20 md:p-10 xl:p-20">
 
       <PageHeader
         title="Where Creativity Powers Innovation."
         subtitle="Because Every Great Future Starts With a Creative Spark."
       />
 
-      <div className='px-5 py-20 md:p-10 xl:p-20'>
+      <div className='mt-30'>
         <div className="flex flex-wrap gap-5 lg:gap-10 justify-center">
           {projData.map((project, index) => (
             <ProjectCard

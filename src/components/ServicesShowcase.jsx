@@ -166,7 +166,7 @@ const ServicesShowcase = () => {
 
         <div className='flex flex-wrap gap-5 md:gap-10 justify-center items-center mt-20 z-50'>
           {devApproach.map((item, i) => (
-            <div key={i} className='w-80 p-4 rounded-xl bg-[#9d9dad27] backdrop-blur-2xl z-50'>
+            <div key={i} className='w-full md:w-80 p-4 rounded-xl bg-[#9d9dad27] backdrop-blur-2xl z-50'>
               <h2 className='orbitron-semibold text-lg md:text-xl text-zinc-200'>{item.title}</h2>
               <p className='poppins-light text-sm md:text-base text-zinc-400 mt-4'>{item.desc}</p>
             </div>

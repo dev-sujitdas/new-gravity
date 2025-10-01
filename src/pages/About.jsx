@@ -69,13 +69,14 @@ const About = () => {
 
 
 
-
+//
   return (
-    <section className="w-full bg-[#040414] relative overflow-hidden px-5 py-10 md:p-10 xl:p-20">
+    <section className="w-full bg-[#040414] relative overflow-hidden px-5 py-20 md:p-10 xl:p-20">
       <PageHeader
         title="Shaping Tomorrow with Creativity."
         subtitle="Transforming ideas into meaningful digital experiences."
       />
+      <div className='w-full mt-20 md:mt-30'>
       <div className='w-full flex lg:flex-row flex-col-reverse justify-between items-center py-10 lg:py-20'>
         <div className='w-full lg:w-1/2'>
           <h2 className='orbitron-regular text-zinc-200 tracking-tight text-3xl md:text-5xl lg:text-6xl'>Who We Are</h2>
@@ -113,7 +114,7 @@ const About = () => {
         <div className='flex flex-wrap justify-center gap-10 py-10 lg:py-20'>
           {teams.map((team, index) => (
             <div id='card' key={index} className={`rounded-xl h-fit bg-[#9d9dad27] backdrop-blur-2xl mt-${isMobile ? "0" : team.top}`}>
-              <div className='w-96 h-96 p-1 rounded-xl'>
+              <div className='w-full md:w-96 h-96 p-1 rounded-xl'>
                 <img src={team.image} className='w-full h-full object-cover rounded-xl' alt="" />
               </div>
               <div className='p-5 space-y-1'>
@@ -126,7 +127,7 @@ const About = () => {
         </div>
       </div>
       <CTA />
-
+      </div>    
     </section>
   )
 }

@@ -13,8 +13,7 @@ const Services = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const title = "Services That Power Tomorrow.";
-
+  
   const servicesBtn = [
     { title: "UI/UX Design", link: "ui-ux" },
     { title: "3D Web Design", link: "design" },
@@ -24,12 +23,12 @@ const Services = () => {
   ];
 
   return (
-    <section className="w-full bg-[#040414] md:px-0 relative overflow-hidden">      
+    <section className="w-full bg-[#040414] md:px-0 relative overflow-hidden px-5 py-20 md:p-10 lg:p-10 xl:p-20">      
       <div className='px-5'>
         <PageHeader
           title="Services That Power Tomorrow."
         />
-        <div className='flex flex-wrap justify-center items-center gap-5 mt-5 md:px-10'>
+        <div className='serviceBtn flex flex-wrap justify-center items-center gap-5 mt-5 md:px-10'>
           {servicesBtn.map((btn, i) => (
             <button key={i} className='gradient-to-right p-[1px] rounded-full cursor-pointer'>
               <div className='px-4 py-2 rounded-full bg-[#040414] hover:bg-transparent transition-all text-zinc-200 text-sm md:text-xl orbitron-regular'>
@@ -40,7 +39,7 @@ const Services = () => {
         </div>
       </div>
       
-      <div className='w-full px-5 py-10 md:p-10 xl:p-20 mt-10'>
+      <div className='w-full mt-20 md:mt-30 md:p-10'>
         {serviceData.map((service, index) => {
           const isLast = index === serviceData.length - 1
           const isLastThree = index >= serviceData.length - 3;

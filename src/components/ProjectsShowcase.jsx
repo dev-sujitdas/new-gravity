@@ -19,7 +19,7 @@ const ProjectsShowcase = () => {
           </span>
           Small preview, big possibilities.
         </h4>       
-        <h2 className="gradient-text text-3xl md:text-5xl xl:text-7xl 2xl:text-8xl orbitron-semibold mt-5 md:mt-10 tracking-tight">
+        <h2 id="gradient-title" className="gradient-text text-3xl md:text-5xl xl:text-7xl 2xl:text-8xl orbitron-semibold mt-5 md:mt-10 tracking-tight">
           {words.split('').map((word, i) => (
             <span key={i}>{word}</span>
           ))}

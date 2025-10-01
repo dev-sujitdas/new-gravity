@@ -169,12 +169,16 @@ main {
     #bf61ff 77.5%,
     #e9e9e9 2.5%  
   );   
+  -webkit-mask: -webkit-gradient(linear, left top, left bottom, color-stop(0, #16091f)) content-box, -webkit-gradient(linear, left top, left bottom, color-stop(0, #16091f));   
   -webkit-mask: linear-gradient(#16091f 0 0) content-box, linear-gradient(#16091f 0 0);
+  mask: -webkit-gradient(linear, left top, left bottom, color-stop(0, #16091f)) content-box, -webkit-gradient(linear, left top, left bottom, color-stop(0, #16091f));
   mask: linear-gradient(#16091f 0 0) content-box, linear-gradient(#16091f 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
-  filter: blur(10px);
-  animation: spin 2s linear infinite;
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
 }
 
 
@@ -184,38 +188,61 @@ main {
 }
 
 /* Spin animation for loader*/
-@keyframes spin {
+@-webkit-keyframes spin {
   from {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
 
 .green-pink-gradient {
     background: "#00cea8";
+    background: -o-linear-gradient(359.87deg, #fdbb589d 1.9%, #AC04E3 97.5%);
     background: linear-gradient(90.13deg, #fdbb589d 1.9%, #AC04E3 97.5%);
     background: -webkit-linear-gradient(-90.13deg, #fdbb589d 1.9%, #AC04E3 97.5%);
   }
 
   .gradient-to-right {
     background: "#00cea8";
+    background: -webkit-gradient(linear, left top, right top, color-stop(1.9%, #fdbb58c7), color-stop(97.5%, #AC04E3));
+    background: -o-linear-gradient(left, #fdbb58c7 1.9%, #AC04E3 97.5%);
     background: linear-gradient(to right, #fdbb58c7 1.9%, #AC04E3 97.5%);
     background: -webkit-linear-gradient(to right #fdbb58c7 1.9%, #AC04E3 97.5%);
   }
 
 
 
+@-webkit-keyframes fadeIn {
+  from { opacity: 0; -webkit-transform: translateY(20px); transform: translateY(20px); }
+  to { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+}
+
+
+
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; -webkit-transform: translateY(20px); transform: translateY(20px); }
+  to { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
 }
 
 .animate-fadeIn {
   opacity: 0;
-  animation: fadeIn 0.8s forwards;
+  -webkit-animation: fadeIn 0.8s forwards;
+          animation: fadeIn 0.8s forwards;
 }
 
 #num{
@@ -241,36 +268,89 @@ main {
 
 .marquee_list {
   white-space: nowrap;
-  animation: marquee 30s linear infinite; 
+  -webkit-animation: marquee 30s linear infinite;
+          animation: marquee 30s linear infinite; 
   will-change: transform;
-  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
 }
 .marquee_list img{
 display: inline-block;  
 }
 
+@-webkit-keyframes marquee {
+  0%   { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+  100% { -webkit-transform: translate3d(-50%, 0, 0); transform: translate3d(-50%, 0, 0); }
+}
+
 @keyframes marquee {
-  0%   { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-50%, 0, 0); }
+  0%   { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+  100% { -webkit-transform: translate3d(-50%, 0, 0); transform: translate3d(-50%, 0, 0); }
 }
 
 
 #button:hover, #card:hover {
-  box-shadow: 0 0 20px 5px #ab04e383;
+  -webkit-box-shadow: 0 0 20px 5px #ab04e383;
+          box-shadow: 0 0 20px 5px #ab04e383;
 }
 
 
 .mousefollower {
-  box-shadow: inset 0 0 20px #9f9fa9;
+  -webkit-box-shadow: inset 0 0 20px #9f9fa9;
+          box-shadow: inset 0 0 20px #9f9fa9;
 }
 
 .gradient-text {
+  background: -webkit-gradient(linear, left top, right top, from(#ff7e5f), color-stop(#fff), to(#251980));
+  background: -o-linear-gradient(left, #ff7e5f, #fff, #251980);
   background: linear-gradient(90deg, #ff7e5f, #fff, #251980);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text; 
 }
 
+
+@media (max-width: 320px) {
+  #mobLogo{
+    height: 2.4rem;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  } 
+  #hero .content h2 {
+    font-size: 1.5rem;
+  }
+  #hero .content p {
+    font-size: 0.875rem;
+  }
+  #gradient-title{
+    font-size: 1.5rem;
+  }
+  .marquee_list img{
+    height: 3.5rem;
+  }
+  #page-header{
+    margin-top: 3rem;
+  } 
+  #page-header h1{
+    font-size: 1.875rem;
+  }
+  .nav-container h4{
+    font-size: 1.25rem;
+  }
+  .nav-container {
+    gap: 1.25rem;
+  }
+  .serviceBtn button {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 375px){
+  #project-dets .tag h2{
+    font-size: 0.75rem;
+  }
+}
 
 
 

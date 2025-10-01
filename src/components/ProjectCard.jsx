@@ -53,7 +53,7 @@ const ProjectCard = ({ num, video, tag, title, subtitle, top }) => {
   return (
     <Link to={`/projects/${title}`} className="z-50">
       <div
-        className="@xs:w-[470px] md:w-[330px] lg:w-[450px] xl:w-[550px] 2xl:w-[750px] z-30"
+        className="@xs:w-[470px] md:w-[330px] lg:w-[450px] xl:w-[520px] 2xl:w-[750px] z-30"
         style={{ marginTop: isSmall ? "0px" : `${top}px` }}
       >
         <div className="mb-5 px-4">
