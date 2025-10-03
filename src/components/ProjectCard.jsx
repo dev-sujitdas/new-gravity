@@ -1,11 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 
 
 const ProjectCard = ({ num, video, tag, title, subtitle, top }) => {
   const followerRef = useRef(null);
   const containerRef = useRef(null);
+  const projectRef = useRef(null);
   const [isSmall, setIsSmall] = useState(false);
 
   useEffect(() => {
@@ -50,9 +56,24 @@ const ProjectCard = ({ num, video, tag, title, subtitle, top }) => {
     gsap.to(followerRef.current, { opacity: 0, scale: 0.5, duration: 0.3 });
   };
 
+  useGSAP(()=>{
+    gsap.from(projectRef.current,{
+      y: 50,
+      opacity: 0,
+      filter: "blur(20px)",
+      ease: "power2.inOut",
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: projectRef.current,
+        start: "top 80%",
+      },
+    })
+  },[])
+
   return (
     <Link to={`/projects/${title}`} className="z-50">
       <div
+        ref={projectRef}
         className="@xs:w-[470px] md:w-[330px] lg:w-[450px] xl:w-[520px] 2xl:w-[750px] z-30"
         style={{ marginTop: isSmall ? "0px" : `${top}px` }}
       >

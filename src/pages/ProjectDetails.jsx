@@ -18,10 +18,10 @@ const ProjectDetails = () => {
   const project = projData.find(p => p.title === title);
 
   return (
-    <section id='project-dets' className='w-full h-full relative overflow-hidden px-5 py-20 md:p-10 xl:p-20'>    
-       <div className='w-full mt-[5rem] md:mt-[10rem] relative'>     
-        <div className="absolute top-0 right-32  w-[30rem] h-[20rem] md:w-[30rem] md:h-[10rem] bg-[#fdbb58de] rounded-full blur-[100px] opacity-30 z-0"></div>
-        <div className="absolute top-0 left-0 w-[10rem] h-[10rem] md:w-[38rem] md:h-[10rem] bg-gradient-to-r from-pink-500 via-purple-600 to-blue-600 rounded-full blur-[100px] opacity-50 z-0"></div>
+    <section id='project-dets' className='w-full h-full relative overflow-hidden px-5 py-20 md:p-10 xl:p-20'>  
+    <div className="absolute top-0 right-32  w-[12rem] h-[2rem] md:w-[30rem] md:h-[5rem] bg-[#fdbb58de] rounded-full blur-[100px] opacity-30 z-0"></div>
+        <div className="absolute top-0 left-0 w-[5rem] h-[2rem] md:w-[38rem] md:h-[5rem] bg-gradient-to-r from-pink-500 via-purple-600 to-blue-600 rounded-full blur-[100px] opacity-50 z-0"></div>  
+       <div className='w-full mt-[5rem] md:mt-[10rem]'>        
         <div className='w-full h-full flex flex-col justify-end items-center'>
           <h1 className='text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl orbitron-extrabold text-white text-center tracking-tight'>
             {project.subtitle.split('').map((word, i) => (

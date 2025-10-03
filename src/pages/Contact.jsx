@@ -106,6 +106,8 @@ const Contact = () => {
 
   return (
     <section id="contact" className='w-full px-5 py-20 md:p-10 xl:p-20 overflow-hidden'>
+      <div className="absolute top-0 right-32  w-[12rem] h-[2rem] md:w-[30rem] md:h-[5rem] bg-[#fdbb58de] rounded-full blur-[100px] opacity-30 z-0"></div>
+        <div className="absolute top-0 left-0 w-[5rem] h-[2rem] md:w-[38rem] md:h-[5rem] bg-gradient-to-r from-pink-500 via-purple-600 to-blue-600 rounded-full blur-[100px] opacity-50 z-0"></div>
       <div className='w-full max-w-[150rem] mx-auto flex xl:flex-row flex-col justify-between mt-16 md:mt-32'>
         <div className='w-full xl:w-1/2 mb-10 xl:mb-0'>
           <h2 className="gradient-text text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl orbitron-bold 2xl:w-[80%]">{title.split('').map((word, i)=>(

@@ -306,9 +306,16 @@ display: inline-block;
   background: linear-gradient(90deg, #ff7e5f, #fff, #251980);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text; 
+  background-clip: text;   
 }
-
+.gradient-text2 {
+  background: -webkit-gradient(linear, left top, right top, from(#fff), color-stop(#ab04e383) to(#251980));
+  background: -o-linear-gradient(left, #fff, #ab04e383, #251980);
+  background: linear-gradient(90deg, #fff, #ab04e383, #251980);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;   
+}
 
 @media (max-width: 320px) {
   #mobLogo{

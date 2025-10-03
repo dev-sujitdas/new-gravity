@@ -16,7 +16,8 @@ const menuItem = [
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [toggle, setToggle] = useState(false);
-  const navRef = useRef(null);
+  const navbuttonRef = useRef(null);
+  const navbarRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -30,44 +31,55 @@ const Navbar = () => {
 
   const linkToggle = () => setToggle(false);
 
-useGSAP(() => {
+  useGSAP(() => {
+    const ctx = gsap.context(() => {
+      if (toggle) {
+        gsap.to(".topLine", {
+          rotation: 50,
+          transformOrigin: "left center",
+          duration: 0.4,
+          ease: "power2.inOut"
+        });
+
+        gsap.to(".middleLine", {
+          opacity: 0,
+          duration: 0.3
+        });
+
+        gsap.to(".bottomLine", {
+          rotation: -50,
+          transformOrigin: "left center",
+          duration: 0.4,
+          ease: "power2.inOut"
+        });
+      } else {
+        gsap.to(".topLine", { rotation: 0, duration: 0.4 });
+        gsap.to(".middleLine", { opacity: 1, duration: 0.3 });
+        gsap.to(".bottomLine", { rotation: 0, duration: 0.4 });
+      }
+    }, navbuttonRef);
+
+    return () => ctx.revert();
+  }, [toggle]);
+
+  useEffect(() => {
   const ctx = gsap.context(() => {
-    if (toggle) {
-      // Animate when opening
-      gsap.to(".topLine", {
-        rotation: 50,
-        transformOrigin: "left center",
-        duration: 0.4,
-        ease: "power2.inOut"
-      });
-
-      gsap.to(".middleLine", {
-        opacity: 0,
-        duration: 0.3
-      });
-
-      gsap.to(".bottomLine", {
-        rotation: -50,
-        transformOrigin: "left center",
-        duration: 0.4,
-        ease: "power2.inOut"
-      });
-    } else {
-      // Reset when closing
-      gsap.to(".topLine", { rotation: 0, duration: 0.4 });
-      gsap.to(".middleLine", { opacity: 1, duration: 0.3 });
-      gsap.to(".bottomLine", { rotation: 0, duration: 0.4 });
-    }
-  }, navRef);
+    gsap.from(navbarRef.current, {
+      y: -100,
+      opacity: 0,
+      filter: "blur(20px)",
+      duration: 1.4,
+      ease: "power2.inOut"
+    });
+  });
 
   return () => ctx.revert();
-}, [toggle]);
-
+  }, []);
 
 
 
   return (
-    <nav className='w-full flex justify-center items-center overflow-hidden fixed top-0 z-999 '>
+    <nav ref={navbarRef} className='w-full flex justify-center items-center overflow-hidden fixed top-0 z-999 '>
       <div className="h-auto w-full max-w-[150rem] mx-auto px-5 md:px-10 xl:px-20 py-3 flex justify-between items-center shadow-md transition-transform ">
         <div className='left z-[999]'>
           {isMobile ? (
@@ -80,7 +92,7 @@ useGSAP(() => {
           <>
             <div className='mob-nav-right z-[999]'>
               <button
-                ref={navRef}
+                ref={navbuttonRef}
                 onClick={toggleHandler}
                 className="flex flex-col gap-2 focus:outline-none"
                 aria-label="Toggle navigation"
@@ -100,17 +112,17 @@ useGSAP(() => {
                     </Link>
                   ))}
                   <div className='mt-10'>
-                  <Button
-                    title="Start a project"
-                    bodyColor="bg-[#040414]"
-                    bodyText="text-white"
-                    titleSize="1.5rem"
-                    width="w-fit"
-                    circleColor="bg-white"
-                    circleSize="2.8rem"
-                  />
+                    <Button
+                      title="Start a project"
+                      bodyColor="bg-[#040414]"
+                      bodyText="text-white"
+                      titleSize="1.5rem"
+                      width="w-fit"
+                      circleColor="bg-white"
+                      circleSize="2.8rem"
+                    />
                   </div>
-                </div>                  
+                </div>
               </div>
             )}
           </>
