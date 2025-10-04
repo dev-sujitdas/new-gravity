@@ -65,7 +65,7 @@ const ProjectCard = ({ num, video, tag, title, subtitle, top }) => {
       duration: 0.8,
       scrollTrigger: {
         trigger: projectRef.current,
-        start: "top 80%",
+        start: "top 90%",
       },
     })
   },[])

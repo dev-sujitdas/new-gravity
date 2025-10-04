@@ -5,11 +5,12 @@ import ProjectProvider from "./components/context/ProjectContext.jsx";
 import { BrowserRouter } from "react-router-dom";
 import ServiceProvider from "./components/context/ServiceContext.jsx";
 
+
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <ServiceProvider>
-      <ProjectProvider>
-        <App />
+      <ProjectProvider>  
+          <App />                
       </ProjectProvider>
     </ServiceProvider>
   </BrowserRouter>

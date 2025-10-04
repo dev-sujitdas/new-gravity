@@ -82,6 +82,7 @@ const ServicesShowcase = () => {
   useGSAP(() => {
     const ctx = gsap.context(() => {
       const spans = headerRef.current.querySelectorAll("span");
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: headerRef.current,
@@ -152,9 +153,10 @@ const ServicesShowcase = () => {
         stagger: 0.05,
         ease: "power2.inOut",
       })
+      
       gsap.from(approachRefs.current, {
         scrollTrigger: {
-          trigger: approachRefs.current[0], // or a common parent container
+          trigger: approachRefs.current[0],
           start: "top 90%",
           end: "top 50%",
         },
@@ -163,7 +165,7 @@ const ServicesShowcase = () => {
         filter: "blur(30px)",
         opacity: 0,
         ease: "power2.inOut",
-        stagger: 0.2, // now works 🎉
+        stagger: 0.2, 
       });
 
     });

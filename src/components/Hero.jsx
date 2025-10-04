@@ -2,6 +2,7 @@ import React, { Suspense, useRef } from "react";
 const Orb = React.lazy(() => import("./shadersComponents/Orb"));
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import Loader from "../suspense/Loader";
 
 
 const Hero = () => {
@@ -17,6 +18,7 @@ const Hero = () => {
 
   mainTl
     .from(bottomRef.current, {
+      delay: 1.2,
       y: 100,
       opacity: 0,
       filter: "blur(20px)",
@@ -60,7 +62,7 @@ const Hero = () => {
     >
       {/* Orb */}
       <div ref={orbRef} className="h-full w-full">
-        <Suspense fallback={"Loading..."}>
+        <Suspense fallback={<Loader/>}>
           <Orb
             hoverIntensity={0.5}
             rotateOnHover={true}

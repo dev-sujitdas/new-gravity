@@ -65,6 +65,7 @@ const Navbar = () => {
   useEffect(() => {
   const ctx = gsap.context(() => {
     gsap.from(navbarRef.current, {
+      delay: 1.2,
       y: -100,
       opacity: 0,
       filter: "blur(20px)",
@@ -79,11 +80,11 @@ const Navbar = () => {
 
 
   return (
-    <nav ref={navbarRef} className='w-full flex justify-center items-center overflow-hidden fixed top-0 z-999 '>
-      <div className="h-auto w-full max-w-[150rem] mx-auto px-5 md:px-10 xl:px-20 py-3 flex justify-between items-center shadow-md transition-transform ">
+    <nav ref={navbarRef} className='w-full flex justify-center items-center fixed top-0 z-[999] '>
+      <div className="h-auto w-full max-w-[150rem] mx-auto px-5 md:px-10 xl:px-20 py-3 flex justify-between items-center transition-transform relative">
         <div className='left z-[999]'>
           {isMobile ? (
-            <Link to={"/"}><img src={GGSIco} alt="logo" id='mobLogo' className='h-12 md:h-16 w-fit' /></Link>
+            <Link onClick={linkToggle} to={"/"}><img src={GGSIco} alt="logo" id='mobLogo' className='h-12 md:h-16 w-fit' /></Link>
           ) : (
             <Link to={"/"}><img src={GGS} alt="logo" id='logo' className='h-16 w-fit ' /></Link>
           )}
@@ -104,7 +105,7 @@ const Navbar = () => {
 
             </div>
             {toggle && (
-              <div className='fixed top-0 left-0 h-screen w-full'>
+              <div className='fixed top-0 left-0 h-[100svh] w-full z-[777]'>
                 <div className='nav-container h-full w-full flex flex-col gap-10 justify-center items-center bg-white/10 backdrop-blur-3xl'>
                   {menuItem.map((menu, i) => (
                     <Link onClick={linkToggle} key={i} to={menu.link} >
