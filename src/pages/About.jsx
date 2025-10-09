@@ -39,14 +39,14 @@ const teams = [
     name: "Khushi Sachdeva",
     role: "Freelancer",
     role2: "Graphic Designer",
-    top: "10"
+    top: "40"
   },
   {
     image: ravi,
     name: "Ravi Singh",
     role: "Freelancer",
     role2: "SEO Specilist",
-    top: "20"
+    top: "80"
   },
 ];
 
