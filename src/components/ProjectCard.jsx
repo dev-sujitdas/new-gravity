@@ -11,12 +11,13 @@ gsap.registerPlugin(ScrollTrigger);
 const ProjectCard = ({ num, video, tag, title, subtitle, top }) => {
   const followerRef = useRef(null);
   const containerRef = useRef(null);
-  const projectRef = useRef(null);
+  const projectRef = useRef(null)
+
   const [isSmall, setIsSmall] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setIsSmall(window.innerWidth <= 1024);
-    
+
     handleResize();
     window.addEventListener("resize", handleResize);
 
@@ -56,19 +57,20 @@ const ProjectCard = ({ num, video, tag, title, subtitle, top }) => {
     gsap.to(followerRef.current, { opacity: 0, scale: 0.5, duration: 0.3 });
   };
 
-  useGSAP(()=>{
-    gsap.from(projectRef.current,{
+  useGSAP(() => {
+    gsap.from(projectRef.current, {
       y: 50,
       opacity: 0,
-      filter: "blur(20px)",
+      filter: "blur(30px)",
       ease: "power2.inOut",
       duration: 0.8,
       scrollTrigger: {
         trigger: projectRef.current,
-        start: "top 90%",
+        start: "top 95%",
       },
     })
-  },[])
+  }, [])
+
 
   return (
     <Link to={`/projects/${title}`} className="z-50">
@@ -111,17 +113,17 @@ const ProjectCard = ({ num, video, tag, title, subtitle, top }) => {
         <div className="flex flex-wrap flex-col w-full mt-2 px-4">
           <div className="flex flex-wrap gap-2">
             {tag?.design && (
-              <div className="px-3 py-1 text-sm md:text-base text-zinc-200 bg-slate-800 rounded-lg poppins-regular">
+              <div className="px-3 py-1 text-sm md:text-base text-zinc-300 bg-slate-800 rounded-lg poppins-regular">
                 <h2>UI/UX Design</h2>
               </div>
             )}
             {tag?.develop && (
-              <div className="px-3 py-1 text-sm md:text-base text-zinc-200 bg-slate-800 rounded-lg poppins-regular">
+              <div className="px-3 py-1 text-sm md:text-base text-zinc-300 bg-slate-800 rounded-lg poppins-regular">
                 <h2>Development</h2>
               </div>
             )}
             {tag?.concept && (
-              <div className="px-3 py-1 text-sm md:text-base text-zinc-200 bg-red-700 rounded-lg poppins-regular">
+              <div className="px-3 py-1 text-sm md:text-base text-zinc-300 bg-red-700 rounded-lg poppins-regular">
                 <h2>Concept</h2>
               </div>
             )}
@@ -130,7 +132,7 @@ const ProjectCard = ({ num, video, tag, title, subtitle, top }) => {
           <h3 className="text-zinc-300 text-[1rem] lg:text-[1.2rem] font-bold text-center orbitron-medium flex flex-row items-center gap-5 mt-2">
             {title}
           </h3>
-          <h4 className="text-sm md:text-base lg:text-lg text-zinc-300 poppins-light">
+          <h4 className="text-sm md:text-base lg:text-lg text-zinc-400 poppins-light">
             {subtitle}
           </h4>
         </div>

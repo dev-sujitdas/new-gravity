@@ -80,97 +80,93 @@ const ServicesShowcase = () => {
   };
 
   useGSAP(() => {
-    const ctx = gsap.context(() => {
-      const spans = headerRef.current.querySelectorAll("span");
+    const spans = headerRef.current.querySelectorAll("span");
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: "top 95%",
-        }
-      });
-
-      const tl2 = gsap.timeline({
-        scrollTrigger: {
-          trigger: headingRef.current,
-          start: "top 90%",
-        }
-      });
-
-      tl.from(spans, {
-        y: 40,
-        filter: "blur(20px)",
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.05,
-        ease: "power2.inOut",
-      });
-
-      tl.from(buttonRef.current, {
-        y: 40,
-        filter: "blur(20px)",
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.inOut",
-      })
-
-      gsap.utils.toArray(".service-list").forEach((item) => {
-        gsap.from(item, {
-          scrollTrigger: {
-            trigger: item,
-            start: "top 100%",
-            end: "top 50%",
-          },
-          duration: 0.4,
-          filter: "blur(30px)",
-          opacity: 0,
-          ease: "back.out(1.5)",
-        });
-      })
-
-      tl2.from(headingRef.current, {
-        y: 40,
-        filter: "blur(20px)",
-        opacity: 0,
-        duration: 0.8,
-        ease: "power2.inOut",
-      })
-
-      tl2.from(subheadingRef.current, {
-        y: 40,
-        filter: "blur(20px)",
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.05,
-        ease: "power2.inOut",
-      })
-
-      tl2.from(".device", {
-        y: 40,
-        filter: "blur(20px)",
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.05,
-        ease: "power2.inOut",
-      })
-      
-      gsap.from(approachRefs.current, {
-        scrollTrigger: {
-          trigger: approachRefs.current[0],
-          start: "top 90%",
-          end: "top 50%",
-        },
-        y: 40,
-        duration: 0.8,
-        filter: "blur(30px)",
-        opacity: 0,
-        ease: "power2.inOut",
-        stagger: 0.2, 
-      });
-
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: headerRef.current,
+        start: "top 95%",
+      }
     });
 
-    return () => ctx.revert();
+    const tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: headingRef.current,
+        start: "top 90%",
+      }
+    });
+
+    tl.from(spans, {
+      y: 40,
+      filter: "blur(20px)",
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.05,
+      ease: "power2.inOut",
+    });
+
+    tl.from(buttonRef.current, {
+      y: 40,
+      filter: "blur(20px)",
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.inOut",
+    })
+
+    gsap.utils.toArray(".service-list").forEach((item) => {
+      gsap.from(item, {
+        scrollTrigger: {
+          trigger: item,
+          start: "top 100%",
+          end: "top 50%",
+        },
+        duration: 0.4,
+        filter: "blur(30px)",
+        opacity: 0,
+        ease: "back.out(1.5)",
+      });
+    })
+
+    tl2.from(headingRef.current, {
+      y: 40,
+      filter: "blur(20px)",
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.inOut",
+    })
+
+    tl2.from(subheadingRef.current, {
+      y: 40,
+      filter: "blur(20px)",
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.05,
+      ease: "power2.inOut",
+    })
+
+    tl2.from(".device", {
+      y: 40,
+      filter: "blur(20px)",
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.05,
+      ease: "power2.inOut",
+    })
+    
+    gsap.from(approachRefs.current, {
+      scrollTrigger: {
+        trigger: approachRefs.current[0],
+        start: "top 90%",
+        end: "top 50%",
+      },
+      y: 40,
+      duration: 0.8,
+      filter: "blur(30px)",
+      opacity: 0,
+      ease: "power2.inOut",
+      stagger: 0.2, 
+    });
+  
   }, [])
 
 

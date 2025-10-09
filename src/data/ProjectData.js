@@ -159,7 +159,7 @@ export const ProjectData = [
       "A tarot reading website where users can explore services, book sessions, and connect with a professional reader. Designed to feel mystical, welcoming, and trustworthy.",
     techStack: {
       tech: [
-        { icon: figma, tech: "Figma" },
+        // { icon: figma, tech: "Figma" },
         { icon: react, tech: "React" },
         { icon: tailwind, tech: "TailwindCSS" },
         { icon: gsap, tech: "GSAP" },

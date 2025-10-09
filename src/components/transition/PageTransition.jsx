@@ -7,6 +7,7 @@ const PageTransition = ({ children }) => {
     const stairRef = useRef(null);
     const pageRef = useRef(null);
     const overlayRef = useRef(null);
+    
     const currentLocation = useLocation().pathname;
 
     useGSAP(() => {
@@ -34,8 +35,10 @@ const PageTransition = ({ children }) => {
                 gsap.set(overlayRef.current, { display: "none" });
                 
                 gsap.to(pageRef.current, {
-                    opacity: 1,
-                    duration: 0.4,
+                    opacity:1,
+                    scale: 1,
+                    y: -20,
+                    duration: 0.8,
                     ease: "power1.out",
                 });
             });
@@ -45,13 +48,9 @@ const PageTransition = ({ children }) => {
     }, [currentLocation]);
 
     return (
-        <section className="w-full h-full relative">
-            {/* Overlay transition */}
-            <div
-                ref={overlayRef}
-                className="w-full h-screen absolute left-0top-0 flex z-50 pointer-events-none"
-            >
-                <div ref={stairRef} className="flex w-full h-full">
+        <section className="w-full h-full relative">            
+            <div ref={overlayRef} className="w-full h-screen absolute left-0 top-0 flex z-50 pointer-events-none">
+                <div ref={stairRef} className="flex w-full h-full overflow-hidden">
                     <div className="h-full w-1/5 bg-white/10 backdrop-blur-2xl" />
                     <div className="h-full w-1/5 bg-[#ab04e352] backdrop-blur-2xl" />
                     <div className="h-full w-1/5 bg-white/10 backdrop-blur-2xl" />
@@ -59,8 +58,7 @@ const PageTransition = ({ children }) => {
                     <div className="h-full w-1/5 bg-white/10 backdrop-blur-2xl" />
                 </div>
             </div>
-
-            {/* Main content */}
+            
             <div ref={pageRef}>{children}</div>
         </section>
     );

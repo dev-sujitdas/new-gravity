@@ -1,11 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import Button from "../components/buttons/Button";
 import emailjs from "emailjs-com"
+import { useGSAP } from "@gsap/react";
 
 
 const Contact = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [selectedService, setSelectedService] = useState("");
   const [budget, setBudget] = useState("");
   const blurRef = useRef(null);
@@ -13,12 +17,12 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    projectDetails: "",    
+    projectDetails: "",
   });
 
-  const services = [    
+  const services = [
     "UI/UX",
-    "3D Website",    
+    "3D Website",
     "Front-end development",
     "Back-end development",
     "Site from scratch",
@@ -87,33 +91,53 @@ const Contact = () => {
     setFormData({
       name: "",
       email: "",
-      projectDetails: "",      
+      projectDetails: "",
     });
     setBudget("");
     setSelectedService("");
   };
-    
-    useEffect(() => {
-      const animatedBlur = gsap.timeline();
-      animatedBlur.from(blurRef.current, {
-        opacity: 0,
-        duration: 1.7,
-      })
-      return () => animatedBlur.kill();
-    }, []);
 
-    const title = "Let’s Turn Vision Into Reality"
+  useEffect(() => {
+    const animatedBlur = gsap.timeline();
+    animatedBlur.from(blurRef.current, {
+      opacity: 0,
+      duration: 1.7,
+    })
+    return () => animatedBlur.kill();
+  }, []);
+
+  useGSAP(()=>{
+    const tl = gsap.timeline();
+     tl.from("#title", {       
+        y: 40,
+        filter: "blur(30px)",
+        opacity: 0,
+        duration: 0.8,
+        delay: 2,
+        ease: "power2.inOut"
+      })
+      tl.from("#contact-dets div",{
+        y: 40,
+        filter: "blur(30px)",
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.08,
+        ease: "power2.inOut"
+      })
+  },[])
+
+  const title = "Let’s Turn Vision Into Reality"
 
   return (
     <section id="contact" className='w-full px-5 py-20 md:p-10 xl:p-20 overflow-hidden'>
       <div className="absolute top-0 right-32  w-[12rem] h-[2rem] md:w-[30rem] md:h-[5rem] bg-[#fdbb58de] rounded-full blur-[100px] opacity-30 z-0"></div>
-        <div className="absolute top-0 left-0 w-[5rem] h-[2rem] md:w-[38rem] md:h-[5rem] bg-gradient-to-r from-pink-500 via-purple-600 to-blue-600 rounded-full blur-[100px] opacity-50 z-0"></div>
+      <div className="absolute top-0 left-0 w-[5rem] h-[2rem] md:w-[38rem] md:h-[5rem] bg-gradient-to-r from-pink-500 via-purple-600 to-blue-600 rounded-full blur-[100px] opacity-50 z-0"></div>
       <div className='w-full max-w-[150rem] mx-auto flex xl:flex-row flex-col justify-between mt-16 md:mt-32'>
         <div className='w-full xl:w-1/2 mb-10 xl:mb-0'>
-          <h2 className="gradient-text text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl orbitron-bold 2xl:w-[80%]">{title.split('').map((word, i)=>(
+          <h2 id="title" className="gradient-text text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl orbitron-bold 2xl:w-[80%]">{title.split('').map((word, i) => (
             <span key={i}>{word}</span>
           ))}</h2>
-          <div className="space-y-5 mt-10">
+          <div id="contact-dets" className="space-y-5 mt-10">
             <div>
               <h3 className="text-xl md:text-2xl poppins-semibold text-zinc-200">Give us a call</h3>
               <p className="text-lg md:text-xl poppins-regular text-zinc-300">+91-9073771205</p>
@@ -126,7 +150,7 @@ const Contact = () => {
               <h3 className="text-xl md:text-2xl poppins-semibold text-zinc-200">Our address</h3>
               <p className="text-lg md:text-xl poppins-regular text-zinc-300">117 Rabindra pally, Kestopur, Kolkata - 700101</p>
             </div>
-          </div>          
+          </div>
         </div>
 
         <div className='w-full xl:w-1/2 relative'>
@@ -180,7 +204,7 @@ const Contact = () => {
                 value={formData.projectDetails}
                 onChange={handleChange}
                 className="w-full px-4 py-2 border poppins-regular bg-zinc-300 border-gray-400 rounded-lg my-4 text-sm md:text-base"
-              />           
+              />
 
               <h4 className="text-xl poppins-semibold text-zinc-300">Budget</h4>
               <div className="flex flex-wrap gap-2 my-4">
@@ -198,20 +222,20 @@ const Contact = () => {
                     {amount}
                   </button>
                 ))}
-              </div>             
+              </div>
             </form>
-              <div className="w-fit px-4">
-              <Button   
-                onClick={()=>formRef.current.requestSubmit()}             
+            <div className="w-fit px-4">
+              <Button
+                onClick={() => formRef.current.requestSubmit()}
                 title="Submit Request"
                 bodyColor="bg-[#040414]"
                 bodyText="text-white"
                 titleSize="1rem"
                 width="w-fit"
                 circleColor="bg-white"
-                circleSize="2.5rem"                
+                circleSize="2.5rem"
               />
-              </div>
+            </div>
             <div className="w-full flex flex-wrap gap-5 2xl:gap-10 p-5">
               <div>
                 <h3 className="text-zinc-300 text-base poppins-regular">Start a project</h3>

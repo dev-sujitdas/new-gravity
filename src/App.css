@@ -158,6 +158,13 @@ main {
   position: relative;
 }
 
+.bruno-ace-sc-regular {
+  font-family: "Bruno Ace SC", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
 .loader-border {
   position: absolute;
   width: 10rem; 
@@ -308,10 +315,11 @@ display: inline-block;
   -webkit-text-fill-color: transparent;
   background-clip: text;   
 }
+
 .gradient-text2 {
-  background: -webkit-gradient(linear, left top, right top, from(#fff), color-stop(#ab04e383) to(#251980));
-  background: -o-linear-gradient(left, #fff, #ab04e383, #251980);
-  background: linear-gradient(90deg, #fff, #ab04e383, #251980);
+  background: -webkit-gradient(linear, left top, right top, from(#b531e0b0), color-stop(#e4e4e7), to(#e9e9e9));
+  background: -o-linear-gradient(left, #b531e0b0, #e4e4e7, #e9e9e9  );
+  background: linear-gradient(90deg,#b531e0b0, #e4e4e7, #e9e9e9 );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;   

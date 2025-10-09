@@ -1,39 +1,85 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
+import gsap from "gsap";
+import { useGSAP } from '@gsap/react';
 import { useParams } from 'react-router-dom'
 import { ProjectContext } from '../components/context/ProjectContext';
 const CTA = React.lazy(() => import("../components/CTA"));
-const PageHeader = React.lazy(()=>import('../components/PageHeader'));
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 
 const ProjectDetails = () => {
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const titleRef = useRef(null)
+  const subtitleRef = useRef(null)
+  const videoRef = useRef(null)
   const { title } = useParams();
   const { projData } = useContext(ProjectContext)
-
-
-
   const project = projData.find(p => p.title === title);
 
+  useGSAP(() => {
+    const spans = titleRef.current.querySelectorAll("span");
+    const tl = gsap.timeline();
+    tl.from(spans, {
+      y: 40,
+      filter: "blur(30px)",
+      opacity: 0,
+      delay: 2,
+      duration: 0.8,
+      stagger: 0.05,
+      ease: "power2.inOut"
+    })
+    tl.from(subtitleRef.current, {
+      y: 40,
+      filter: "blur(30px)",
+      opacity: 0,
+      duration: 0.6,
+      ease: "power2.inOut"
+    }, "-=0.3")
+    tl.from(videoRef.current, {
+      y: 40,
+      filter: "blur(30px)",
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.inOut"
+    }, "-=0.3")
+
+    gsap.utils.toArray(["#metrics", "#problem", "#approach"]).forEach((section) => {
+      gsap.from(section, {
+        scrollTrigger: {
+          trigger: section,
+          start: "top 90%",
+        },
+        y: 40,
+        filter: "blur(30px)",
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.inOut",
+      });
+    });
+
+  }, [])
+
   return (
-    <section id='project-dets' className='w-full h-full relative overflow-hidden px-5 py-20 md:p-10 xl:p-20'>  
-    <div className="absolute top-0 right-32  w-[12rem] h-[2rem] md:w-[30rem] md:h-[5rem] bg-[#fdbb58de] rounded-full blur-[100px] opacity-30 z-0"></div>
-        <div className="absolute top-0 left-0 w-[5rem] h-[2rem] md:w-[38rem] md:h-[5rem] bg-gradient-to-r from-pink-500 via-purple-600 to-blue-600 rounded-full blur-[100px] opacity-50 z-0"></div>  
-       <div className='w-full mt-[5rem] md:mt-[10rem]'>        
-        <div className='w-full h-full flex flex-col justify-end items-center'>
-          <h1 className='text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl orbitron-extrabold text-white text-center tracking-tight'>
-            {project.subtitle.split('').map((word, i) => (
-              <span key={i}>{word}</span>
+    <section id='project-dets' className='w-full h-full relative overflow-hidden px-5 py-20 md:p-10 xl:p-20'>
+      <div className="absolute top-0 right-32  w-[12rem] h-[2rem] md:w-[30rem] md:h-[5rem] bg-[#fdbb58de] rounded-full blur-[100px] opacity-30 z-0"></div>
+      <div className="absolute top-0 left-0 w-[5rem] h-[2rem] md:w-[38rem] md:h-[5rem] bg-gradient-to-r from-pink-500 via-purple-600 to-blue-600 rounded-full blur-[100px] opacity-50 z-0"></div>
+      <div className='w-full mt-[5rem] md:mt-[10rem]'>
+        <div className='w-full h-full flex flex-col justify-end items-center lg:px-44'>
+          <h1 ref={titleRef} className='text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl orbitron-extrabold text-white text-center tracking-tight space-x-3'>
+            {project.subtitle.split(' ').map((word, i) => (
+              <span key={i} className='inline-block'>{word}</span>
             ))}
           </h1>
-          <h3 className='text-zinc-300 mt-5 md:mt-10 poppins-regular text-sm md:text-lg lg:text-xl'>{project.description}</h3>
+          <h3 ref={subtitleRef} className='text-zinc-300 mt-5 md:mt-10 poppins-regular text-sm md:text-lg lg:text-xl text-center px-24'>{project.description}</h3>
         </div>
       </div>
 
-      <div className='w-full flex flex-col justify-center items-center mt-20 md:mt-30'>
-        <div className='w-full lg:h-[35rem] xl:h-[50rem] rounded-xl overflow-hidden'>
+      <div className='w-full flex flex-col justify-center items-center mt-20 md:mt-30 mb-20 md:mb-30'>
+        <div ref={videoRef} className='w-full lg:h-[35rem] xl:h-[50rem] rounded-xl overflow-hidden'>
           <video
             autoPlay
             muted

@@ -63,7 +63,6 @@ const Navbar = () => {
   }, [toggle]);
 
   useEffect(() => {
-  const ctx = gsap.context(() => {
     gsap.from(navbarRef.current, {
       delay: 1.2,
       y: -100,
@@ -72,9 +71,6 @@ const Navbar = () => {
       duration: 1.4,
       ease: "power2.inOut"
     });
-  });
-
-  return () => ctx.revert();
   }, []);
 
 
@@ -117,10 +113,11 @@ const Navbar = () => {
                       title="Start a project"
                       bodyColor="bg-[#040414]"
                       bodyText="text-white"
-                      titleSize="1.5rem"
+                      titleSize="1rem"
                       width="w-fit"
                       circleColor="bg-white"
-                      circleSize="2.8rem"
+                      circleSize="2.5rem"
+                      link="/contact"
                     />
                   </div>
                 </div>
@@ -143,6 +140,7 @@ const Navbar = () => {
                 width="w-fit"
                 circleColor="bg-white"
                 circleSize="2.5rem"
+                link="/contact"
               />
             </div>
           </div>

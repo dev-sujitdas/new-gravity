@@ -58,7 +58,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="w-full h-[100svh] md:h-screen bg-[#040414] flex justify-center items-center relative p-10 md:p-20"
+      className="w-full h-[100dvh] md:h-screen bg-[#040414] flex justify-center items-center relative p-10 md:p-20"
     >
       {/* Orb */}
       <div ref={orbRef} className="h-full w-full">
