@@ -39,14 +39,14 @@ const teams = [
     name: "Khushi Sachdeva",
     role: "Freelancer",
     role2: "Graphic Designer",
-    top: "10"
+    top: "40"
   },
   {
     image: ravi,
     name: "Ravi Singh",
     role: "Freelancer",
     role2: "SEO Specilist",
-    top: "20"
+    top: "80"
   },
 ];
 
@@ -170,10 +170,9 @@ const About = () => {
               {"Who We Are".split(" ").map((w, i) => (<span key={i} className='inline-block'>{w}</span>))}
             </h2>
             <p className='para poppins-regluar text-zinc-300 md:text-xl lg:text-2xl mt-10'>
-              At Gravity, we believe creativity is more than just design - it’s the force that pushes boundaries,
-              sparks innovation, and shapes the future. From bold ideas to seamless execution,
-              we craft digital experiences that not only look stunning but also perform with purpose.
-              Whether it’s immersive 3D design, scalable development, or powerful branding, we transform visions into experiences that truly resonate.
+              Gravity Global Solution is a creative web development agency specializing in full-stack development,
+              UI/UX design, and digital branding. Based in India, we craft scalable and high-performance web experiences
+              for businesses and creators worldwide.
             </p>
           </div>
           <div className='w-full lg:w-1/2 flex justify-center items-center relative'>

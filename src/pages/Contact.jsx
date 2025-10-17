@@ -73,20 +73,31 @@ const Contact = () => {
       return;
     }
 
-    console.log("Dynamic Data Being Sent:", data);
+    // Replace with your actual deployed Vercel URL
+    const API_URL = "https://email-js-api-git-main-sujit-das-projects.vercel.app/api/emailJs";
 
-    emailjs
-      .send("service_dkaikx5", "template_zzp9kgj", data, "zDfgxDrEKQzlmbBnE")
-      .then(
-        (response) => {
-          console.log("SUCCESS!", response.status, response.text);
+    fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ data }),
+    })
+      .then(async (res) => {
+        const result = await res.json();
+        if (result.success) {
+          console.log("SUCCESS!", result);
           alert("Submission was successful!");
-        },
-        (error) => {
-          console.error("FAILED...", error.text);
+        } else {
+          console.error("FAILED...", result.error);
           alert("An error occurred. Please try again.");
         }
-      );
+      })
+      .catch((err) => {
+        console.error("NETWORK ERROR:", err);
+        alert("Network error. Please try again later.");
+      });
+
 
     setFormData({
       name: "",
@@ -106,25 +117,25 @@ const Contact = () => {
     return () => animatedBlur.kill();
   }, []);
 
-  useGSAP(()=>{
+  useGSAP(() => {
     const tl = gsap.timeline();
-     tl.from("#title", {       
-        y: 40,
-        filter: "blur(30px)",
-        opacity: 0,
-        duration: 0.8,
-        delay: 2,
-        ease: "power2.inOut"
-      })
-      tl.from("#contact-dets div",{
-        y: 40,
-        filter: "blur(30px)",
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.08,
-        ease: "power2.inOut"
-      })
-  },[])
+    tl.from("#title", {
+      y: 40,
+      filter: "blur(30px)",
+      opacity: 0,
+      duration: 0.8,
+      delay: 2,
+      ease: "power2.inOut"
+    })
+    tl.from("#contact-dets div", {
+      y: 40,
+      filter: "blur(30px)",
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.08,
+      ease: "power2.inOut"
+    })
+  }, [])
 
   const title = "Let’s Turn Vision Into Reality"
 
@@ -138,17 +149,17 @@ const Contact = () => {
             <span key={i}>{word}</span>
           ))}</h2>
           <div id="contact-dets" className="space-y-5 mt-10">
-            <div>
+            {/* <div>
               <h3 className="text-xl md:text-2xl poppins-semibold text-zinc-200">Give us a call</h3>
               <p className="text-lg md:text-xl poppins-regular text-zinc-300">+91-9073771205</p>
-            </div>
+            </div> */}
             <div>
               <h3 className="text-xl md:text-2xl poppins-semibold text-zinc-200">Leave us a message</h3>
               <p className="text-lg md:text-xl poppins-regular text-zinc-300">hello@gravityglobal.in</p>
             </div>
             <div>
               <h3 className="text-xl md:text-2xl poppins-semibold text-zinc-200">Our address</h3>
-              <p className="text-lg md:text-xl poppins-regular text-zinc-300">117 Rabindra pally, Kestopur, Kolkata - 700101</p>
+              <p className="text-lg md:text-xl poppins-regular text-zinc-300">Rabindra pally, Kestopur, Kolkata - 700101</p>
             </div>
           </div>
         </div>
@@ -161,7 +172,7 @@ const Contact = () => {
           ></div>
           <div id="form" className="z-10 relative p-2 md:p-5 bg-white/5 backdrop-blur-2xl rounded-xl">
             <form ref={formRef} onSubmit={handleSubmit} className="max-w-[900px] mx-auto p-4">
-              <h4 className="text-3xl md:text-4xl orbitron-regular text-zinc-300 mb-10">Share Your Vision With Us </h4>
+              <h4 className="text-3xl md:text-4xl orbitron-regular text-zinc-200 mb-10">Share Your Vision With Us </h4>
               <div className="flex flex-wrap gap-2 my-5">
                 {services.map((service) => (
                   <button
@@ -171,7 +182,7 @@ const Contact = () => {
                     onClick={() => handleServiceClick(service)}
                     className={`px-4 py-2 rounded-full ${selectedService === service
                       ? "bg-[#151030] text-white"
-                      : "bg-zinc-300 text-black"
+                      : "bg-zinc-200 text-black"
                       } border border-gray-300 relative poppins-regular cursor-pointer text-sm md:text-base`}
                   >
                     {service}
@@ -186,7 +197,7 @@ const Contact = () => {
                   placeholder="Your name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full md:flex-1 px-4 py-2 border poppins-regular bg-zinc-300 border-gray-400 rounded-lg text-sm md:text-base"
+                  className="w-full md:flex-1 px-4 py-2 border poppins-regular bg-white border-gray-400 rounded-lg text-sm md:text-base outline-0"
                 />
                 <input
                   type="email"
@@ -194,7 +205,7 @@ const Contact = () => {
                   placeholder="Your email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full md:flex-1 px-4 py-2 border poppins-regular bg-zinc-300 border-gray-400 rounded-lg text-sm md:text-base"
+                  className="w-full md:flex-1 px-4 py-2 border poppins-regular bg-white border-gray-400 rounded-lg text-sm md:text-base outline-0 "
                 />
               </div>
 
@@ -203,7 +214,7 @@ const Contact = () => {
                 placeholder="About your project"
                 value={formData.projectDetails}
                 onChange={handleChange}
-                className="w-full px-4 py-2 border poppins-regular bg-zinc-300 border-gray-400 rounded-lg my-4 text-sm md:text-base"
+                className="w-full px-4 py-2 border poppins-regular bg-white border-gray-400 rounded-lg my-4 text-sm md:text-base outline-0"
               />
 
               <h4 className="text-xl poppins-semibold text-zinc-300">Budget</h4>
@@ -216,7 +227,7 @@ const Contact = () => {
                     onClick={() => handleBudgetClick(amount)}
                     className={`px-4 py-2 rounded-full ${budget === amount
                       ? "bg-[#151030] text-white"
-                      : "bg-zinc-300 text-black"
+                      : "bg-white text-black"
                       } border border-gray-300 poppins-regular cursor-pointer text-sm md:text-base`}
                   >
                     {amount}

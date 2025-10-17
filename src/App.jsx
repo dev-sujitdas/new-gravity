@@ -17,7 +17,8 @@ import PageTransition from './components/transition/PageTransition';
 const App = () => {
   useEffect(()=>{
     window.scrollTo(0,0)
-  })
+  },[])
+  
   const lenisRef = useRef(null);
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(true)

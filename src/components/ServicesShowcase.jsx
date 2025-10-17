@@ -203,7 +203,7 @@ const ServicesShowcase = () => {
               onMouseMove={(e) => handleMouseMove(e, index)}
               onMouseLeave={() => handleMouseLeave(index)}
               className={`service-list ${isFirst ? "pt-[1px]" : ""} ${isMid && "pb-[1px]"} ${isLast && "pb-[1px]"} gradient-to-right relative group`}>
-              <div className={` flex lg:flex-row flex-col select-none  hover:bg-transparent transition-all bg-[#040414]`}>
+              <div className={` flex lg:flex-row flex-col select-none  hover:bg-transparent duration-500 transition-all bg-[#040414]`}>
                 <div
                   className={`xl:w-[40%] w-full py-3 md:py-[2rem] md:px-5 flex gap-5 items-center`}
                 >

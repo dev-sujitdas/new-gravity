@@ -106,10 +106,10 @@ const Footer = () => {
                         </div>
                         <div>
                             <ul className="space-y-3">
-                                <li className="poppins-relugar text-zinc-300 text-sm md:text-base tracking-widest hover:text-[#9897F4]">
+                                {/* <li className="poppins-relugar text-zinc-300 text-sm md:text-base tracking-widest hover:text-[#9897F4]">
                                     {" "}
                                     <a href="tel:+91-9073771205">9073771205</a>
-                                </li>
+                                </li> */}
                                 <li className="poppins-relugar text-zinc-300 text-sm md:text-base tracking-widest hover:text-[#9897F4]">
                                     {" "}
                                     <a href="mailto:hello@gravityglobal.in">
@@ -118,7 +118,7 @@ const Footer = () => {
                                 </li>
                                 <li className="poppins-relugar text-zinc-300 text-sm md:text-base tracking-wider ">
                                     {" "}
-                                    117, Rabindrapally
+                                    Rabindrapally
                                     <br /> Kestopur, Kolkata 700101{" "}
                                 </li>
                             </ul>

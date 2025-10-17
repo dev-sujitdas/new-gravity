@@ -26,6 +26,7 @@ const ctaRef = useRef(null);
 
     return (
         <section className='w-full pt-10 pb-20 md:pt-30 md:pb-30 relative'>
+             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[10rem] h-[10rem] md:w-[20rem] md:h-[20rem] bg-[#fdbb58c7] rounded-full blur-[100px] opacity-30 z-0"></div>
             <div ref={ctaRef} className='flex justify-center items-center flex-col'>
                 <div className='2xl:w-[65%] z-50'>
                     <h2 className='gradient-text text-3xl md:text-4xl lg:text-5xl xl:text-6xl orbitron-bold gap-2 text-center tracking-tight'>
@@ -43,11 +44,10 @@ const ctaRef = useRef(null);
                         width="w-fit"
                         circleColor="bg-white"
                         circleSize="2.5rem"
-                        link="/contact"
+                        link="/contact"                                   
                     />
                 </div>
-            </div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[10rem] h-[10rem] md:w-[20rem] md:h-[20rem] bg-[#fdbb58c7] rounded-full blur-[100px] opacity-30 z-0"></div>
+            </div>           
         </section>
     )
 }
