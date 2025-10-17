@@ -159,7 +159,9 @@ const Contact = () => {
             </div>
             <div>
               <h3 className="text-xl md:text-2xl poppins-semibold text-zinc-200">Our address</h3>
-              <p className="text-lg md:text-xl poppins-regular text-zinc-300">Rabindra pally, Kestopur, Kolkata - 700101</p>
+              <p className="text-lg md:text-xl poppins-regular text-zinc-300">Remote Agency — Operating Globally</p>
+              <p className="text-base md:text-lg poppins-regular text-zinc-400">Currently operating remotely worldwide</p>
+              <p className="text-base md:text-lg poppins-regular text-zinc-400">Based in Kolkata, India.</p>
             </div>
           </div>
         </div>
